@@ -16,9 +16,16 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'firebase'
   ]);
-  app.config(function ($routeProvider) {
+
+
+/*just a constant so we can use our url later*/
+app.constant('FIREBASE_URL', 'https://crackling-fire-3852.firebaseio.com/');
+
+/*controls the flow of control in our web app*/
+app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/posts.html',
