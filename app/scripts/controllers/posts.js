@@ -1,11 +1,6 @@
 'use strict';
 
-
-     
 app.controller('PostsCtrl', function ($scope, Post) {
-
-	//holds all of the submitted posts
-	$scope.posts = [];
 
 	//holds all of the submitted posts
 	$scope.posts = Post.get();
