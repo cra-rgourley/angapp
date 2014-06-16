@@ -3,7 +3,11 @@
 app.controller('PostsCtrl', function ($scope, $location, Post) {
 
 	//holds all of the submitted posts
-	$scope.posts = Post.all;
+	if ($location.path() === '/') {
+		//aka only show all the posts if we are on the homepage
+		$scope.posts = Post.all;
+	}
+	
 
 	//format for the information stored by each post
 	$scope.post = {url: 'http://', title: ''};
