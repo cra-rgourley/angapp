@@ -14,7 +14,7 @@
  
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div ng-controller="NavCtrl" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<form class="navbar-form navbar-left" role="search" ng-submit="submitPost()">
+		<form class="navbar-form navbar-left" role="search" ng-submit="submitPost()" ng-show="signedIn()">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Title" ng-model="post.title">
 			</div>
@@ -24,13 +24,30 @@
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 
-		<!-- user logout -->
+		<!-- if user is logged in -->
 		<ul class="nav navbar-nav navbar-right" ng-show="signedIn()">
+			<li>
+				<a href="#/users/{{currentUser.username}}">
+					<img ng-src="http://gravatar.com/avatar/{{currentUser.md5_hash}}" class="nav-pic" />{{currentUser.username}}
+				</a>
+
+			</li>
 			<li>
 				<a href="#" ng-click="logout()">Logout</a>
 			</li>
 		</ul>
-		
+
+		<!-- if user not logged in -->
+		<ul class="nav navbar-nav navbar-right" ng-hide="signedIn()">
+			<li>
+				<a href="#/register">Register</a>
+			</li>
+			<li>
+				<a href="#/login">Log In</a>
+			</li>
+		</ul>
+
+
 
 
 
